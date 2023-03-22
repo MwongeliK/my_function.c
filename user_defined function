@@ -1,0 +1,43 @@
+//this is a C program that asks the user for input ,does the calculation {((a+b)*(c+d))+((e+f)*(g*h))} using a user-defined function. 
+#include <stdio.h>
+int add_2_nums (int num1,int num2);//defined function for addition declaration
+int mult_2_nums (int num3,int num4);//defined function for multiplication declaration
+int main ()
+{
+    int num1,count;//initialization of variables
+    int arr_nums[10];//initialization of an array
+    printf("Please enter the number of digits you want to add :\n");
+    scanf("%d",&num1);//input
+    if (num1%2==0)
+    {
+        printf("please enter the numbers:");
+        for(count=0;count<num1;count++)
+        scanf("%d",&arr_nums[count]);
+        int sum1,sum2,sum3,sum4,total;
+        sum1= add_2_nums(arr_nums[0],arr_nums[1]);
+        sum2= add_2_nums(arr_nums[2],arr_nums[3]);
+        sum3= add_2_nums(arr_nums[4],arr_nums[5]);
+        sum4= add_2_nums(arr_nums[6],arr_nums[7]);
+        arr_nums[8]=mult_2_nums(sum1,sum2);
+        arr_nums[9]=mult_2_nums(sum3,sum4);
+        total=add_2_nums(arr_nums[8],arr_nums[9]);
+        printf("%d",total);
+
+    }
+    else
+    {
+        printf("SORRY.THE NUMBER YOU HAVE ENTERED IS ODD.");
+    }
+
+
+}
+int add_2_nums(int num1,int num2)//defining the prototype
+{
+    int sum = num1 + num2;
+    return sum;
+}
+int mult_2_nums(int num3,int num4)
+{
+    int product = num3 * num4 ;
+    return product ;
+}
